@@ -1,0 +1,2 @@
+/* Offline font, latin subset and woff2 only. Figtree: open-source geometric sans (OFL). */
+@font-face { font-family: 'Figtree Variable'; font-style: normal; font-display: swap; font-weight: 300 900; src: url('@fontsource-variable/figtree/files/figtree-latin-wght-normal.woff2') format('woff2-variations'); }

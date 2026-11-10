@@ -1,0 +1,37 @@
+/* Cara A — colours taken from the cover (the shell overrides the --bg… --ink3 tokens with the
+   playing track's palette; these are the defaults, a plum sleeve). */
+@import './fonts.css';
+
+/* Registered so the colours glide when the cover changes */
+@property --bg { syntax: '<color>'; inherits: true; initial-value: #1d0f18; }
+@property --chrome { syntax: '<color>'; inherits: true; initial-value: #170a12; }
+@property --pane { syntax: '<color>'; inherits: true; initial-value: #1a0d15; }
+@property --card { syntax: '<color>'; inherits: true; initial-value: #26131f; }
+@property --field { syntax: '<color>'; inherits: true; initial-value: #2a1522; }
+@property --deck-a { syntax: '<color>'; inherits: true; initial-value: #3a1630; }
+@property --deck-b { syntax: '<color>'; inherits: true; initial-value: #24101d; }
+@property --acc { syntax: '<color>'; inherits: true; initial-value: #f0a35e; }
+@property --ink2 { syntax: '<color>'; inherits: true; initial-value: #cdb8a7; }
+@property --ink3 { syntax: '<color>'; inherits: true; initial-value: #94807a; }
+
+html[data-skin='caraa'] {
+  color-scheme: dark;
+  --bg: #1d0f18; --chrome: #170a12; --deck-a: #3a1630; --deck-b: #24101d;
+  --pane: #1a0d15; --card: #26131f; --field: #2a1522; --hover: rgba(244, 228, 210, 0.06);
+  --tab-on: #f4e4d2; --tab-on-ink: #1d0f18;
+  --ink: #f4e4d2; --ink2: #cdb8a7; --ink3: #94807a; --line: rgba(244, 228, 210, 0.09); --line-soft: rgba(244, 228, 210, 0.05);
+  --acc: #f0a35e; --acc-ink: #1d0f18; --ok: #b3bd84; --bad: #ef9a62; --warn: #dcb56c;
+  --track: rgba(244, 228, 210, 0.15); --wave-off: rgba(244, 228, 210, 0.22); --play-bg: #f4e4d2; --play-ink: #1d0f18;
+  --f-ui: 'Alegreya Sans', 'Segoe UI', sans-serif; --f-title: 'Newsreader Variable', Georgia, serif; --f-mono: 'IBM Plex Mono', Consolas, monospace; --f-lcd: var(--f-title);
+}
+/* Declared on .app so they follow the cover tokens the shell sets inline there */
+html[data-skin='caraa'] .app {
+  --r: 8px; --rp: 10px;
+  --deck: linear-gradient(100deg, var(--deck-a), var(--deck-b) 60%); --sel: color-mix(in srgb, var(--acc) 12%, transparent); --wave-on: var(--acc);
+  font-size: 13.5px;
+  transition: --bg 0.7s, --chrome 0.7s, --pane 0.7s, --card 0.7s, --field 0.7s, --deck-a 0.7s, --deck-b 0.7s, --acc 0.7s, --ink2 0.7s, --ink3 0.7s;
+}
+html[data-skin='caraa'] .app .ti { font-weight: 500; font-size: 21px; }
+html[data-skin='caraa'] .app .pane h2 { font-weight: 500; font-size: 28px; }
+html[data-skin='caraa'] .app .vw .vw-title { font-weight: 500; }
+@container pl (max-width: 860px) { html[data-skin='caraa'] .app .ti { font-size: 17px; } }

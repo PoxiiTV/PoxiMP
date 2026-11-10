@@ -1,0 +1,7 @@
+/* Offline fonts, latin subset and woff2 only (the webview always supports it): smaller bundle */
+@font-face { font-family: 'Bodoni Moda Variable'; font-style: normal; font-display: swap; font-weight: 400 900; src: url('@fontsource-variable/bodoni-moda/files/bodoni-moda-latin-opsz-normal.woff2') format('woff2-variations'); }
+@font-face { font-family: 'Bodoni Moda Variable'; font-style: italic; font-display: swap; font-weight: 400 900; src: url('@fontsource-variable/bodoni-moda/files/bodoni-moda-latin-opsz-italic.woff2') format('woff2-variations'); }
+@font-face { font-family: 'Schibsted Grotesk Variable'; font-style: normal; font-display: swap; font-weight: 400 900; src: url('@fontsource-variable/schibsted-grotesk/files/schibsted-grotesk-latin-wght-normal.woff2') format('woff2-variations'); }
+@font-face { font-family: 'IBM Plex Mono'; font-style: normal; font-display: swap; font-weight: 400; src: url('@fontsource/ibm-plex-mono/files/ibm-plex-mono-latin-400-normal.woff2') format('woff2'); }
+@font-face { font-family: 'IBM Plex Mono'; font-style: normal; font-display: swap; font-weight: 500; src: url('@fontsource/ibm-plex-mono/files/ibm-plex-mono-latin-500-normal.woff2') format('woff2'); }
+@font-face { font-family: 'IBM Plex Mono'; font-style: normal; font-display: swap; font-weight: 600; src: url('@fontsource/ibm-plex-mono/files/ibm-plex-mono-latin-600-normal.woff2') format('woff2'); }

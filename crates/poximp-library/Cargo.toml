@@ -1,0 +1,16 @@
+[package]
+name = "poximp-library"
+description = "PoxiMP music library: SQLite, scanning, tags and covers"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+
+[dependencies]
+rusqlite.workspace = true
+lofty.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+# NFC/NFD: import matching on every platform; path keys are normalised to NFC on macOS only.
+unicode-normalization = "0.1.25"
+thiserror.workspace = true

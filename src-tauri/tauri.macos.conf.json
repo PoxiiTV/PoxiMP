@@ -1,0 +1,44 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "app": {
+    "windows": [
+      {
+        "label": "main",
+        "title": "PoxiMP",
+        "width": 1280,
+        "height": 800,
+        "minWidth": 640,
+        "minHeight": 150,
+        "decorations": true,
+        "titleBarStyle": "Overlay",
+        "hiddenTitle": true,
+        "resizable": true,
+        "center": true,
+        "visible": false,
+        "dragDropEnabled": true,
+        "backgroundColor": "#170a12",
+        "create": false
+      }
+    ]
+  },
+  "bundle": {
+    "targets": ["app", "dmg"],
+    "macOS": {
+      "minimumSystemVersion": "11.0",
+      "signingIdentity": "-"
+    },
+    "resources": {
+      "icons/files/mp3.icns": "mp3.icns",
+      "icons/files/flac.icns": "flac.icns",
+      "icons/files/wav.icns": "wav.icns",
+      "icons/files/aiff.icns": "aiff.icns",
+      "icons/files/m4a.icns": "m4a.icns",
+      "icons/files/aac.icns": "aac.icns",
+      "icons/files/ogg.icns": "ogg.icns",
+      "icons/files/opus.icns": "opus.icns",
+      "icons/files/wv.icns": "wv.icns",
+      "icons/files/ape.icns": "ape.icns",
+      "icons/files/m3u.icns": "m3u.icns"
+    }
+  }
+}

@@ -1,0 +1,28 @@
+[package]
+name = "poximp-engine"
+description = "PoxiMP playback engine"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+
+[dependencies]
+symphonia.workspace = true
+cpal.workspace = true
+rtrb.workspace = true
+rubato.workspace = true
+realfft.workspace = true
+crossbeam-channel.workspace = true
+serde.workspace = true
+poximp-codecs.workspace = true
+
+# Bit-perfect: WASAPI exclusive on Windows (the windows crate is already there through cpal and
+# wasapi, same version: only the MMCSS call is used directly).
+[target.'cfg(windows)'.dependencies]
+wasapi = "0.26.0"
+windows = { version = "0.62.2", features = ["Win32_System_Threading"] }
+
+# Bit-perfect on macOS: hog mode + nominal rate only (both crates already come with cpal).
+[target.'cfg(target_os = "macos")'.dependencies]
+objc2-core-audio = { version = "0.3.2", default-features = false, features = ["std", "AudioHardware"] }
+objc2-core-foundation = { version = "0.3.2", default-features = false, features = ["std", "CFString"] }

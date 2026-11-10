@@ -1,0 +1,79 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "PoxiMP",
+  "version": "1.0.0",
+  "identifier": "com.poxi.poximp",
+  "build": {
+    "frontendDist": "../dist",
+    "devUrl": "http://localhost:1420",
+    "beforeDevCommand": "npm run vite",
+    "beforeBuildCommand": "npm run build"
+  },
+  "app": {
+    "windows": [
+      {
+        "label": "main",
+        "title": "PoxiMP",
+        "width": 1280,
+        "height": 800,
+        "minWidth": 640,
+        "minHeight": 150,
+        "decorations": false,
+        "resizable": true,
+        "center": true,
+        "visible": false,
+        "dragDropEnabled": true,
+        "backgroundColor": "#170a12",
+        "create": false
+      }
+    ],
+    "security": {
+      "csp": "default-src 'self' ipc: http://ipc.localhost; img-src 'self' data: blob: cover: http://cover.localhost; style-src 'self' 'unsafe-inline'; font-src 'self' data:; connect-src ipc: http://ipc.localhost",
+      "freezePrototype": true
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": [
+      "nsis"
+    ],
+    "publisher": "Poxi",
+    "copyright": "Poxi",
+    "category": "Music",
+    "shortDescription": "Reproductor de música local",
+    "longDescription": "PoxiMP reproduce tu música local con skins a elegir y te dice si la calidad de cada archivo es real o falsa.",
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.icns",
+      "icons/icon.ico"
+    ],
+    "resources": [
+      "icons/files/*.ico"
+    ],
+    "windows": {
+      "nsis": {
+        "installMode": "currentUser",
+        "languages": [
+          "Spanish",
+          "English"
+        ],
+        "installerIcon": "icons/icon.ico",
+        "installerHooks": "windows/hooks.nsh"
+      }
+    },
+    "createUpdaterArtifacts": true
+  },
+  "plugins": {
+    "updater": {
+      "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IEFBOEQwOENBNzc5M0U3RkMKUldUODU1TjN5Z2lOcWduZG5PNmpvbDhiUWE2NDl1WnY5VkVnYjFqelZiVGJoVjd3cnRJRkhOeUEK",
+      "endpoints": [
+        "https://github.com/PoxiiTV/PoxiMP/releases/latest/download/latest.json"
+      ],
+      "windows": {
+        "installMode": "passive"
+      }
+    }
+  }
+}

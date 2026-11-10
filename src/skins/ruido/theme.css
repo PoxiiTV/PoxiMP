@@ -1,0 +1,41 @@
+/* Ruido — neo-brutalist: thick borders, hard offset shadows, loud fills. */
+@import './fonts.css';
+
+html[data-skin='ruido'] {
+  color-scheme: light;
+  --bg: #f5eedf; --chrome: #161412; --deck: #f5eedf; --pane: #ebe2ce; --card: #fffdf7; --field: #fffdf7;
+  --hover: rgba(22, 20, 18, 0.06); --sel: #ffe03a; --tab-on: #ffe03a; --tab-on-ink: #161412;
+  --ink: #161412; --ink2: #3c3833; --ink3: #635c52; --line: rgba(22, 20, 18, 0.9); --line-soft: rgba(22, 20, 18, 0.12);
+  --acc: #ff5da2; --acc-ink: #161412; --acc-text: #161412; --ok: #1f7d4a; --bad: #c2185b; --warn: #8a5a00;
+  --track: #fffdf7; --wave-on: #161412; --wave-off: #cfc5b1; --play-bg: #ff5da2; --play-ink: #161412; --play-sh: 3px 3px 0 #161412;
+  --f-ui: 'Bricolage Grotesque Variable', 'Arial Black', sans-serif; --f-title: 'Bricolage Grotesque Variable', sans-serif; --f-mono: 'Martian Mono Variable', Consolas, monospace;
+  --f-lcd: var(--f-title);
+}
+html[data-skin='ruido'] .app { --r: 6px; --rp: 8px; --col-f: 112px; }
+/* dark title bar, tab bar and status bar on the cream body */
+html[data-skin='ruido'] .app .tb, html[data-skin='ruido'] .app .tabs, html[data-skin='ruido'] .app .st { --ink: #fffdf7; --ink2: #e6dfcf; --ink3: #b9b0a0; --line: #3b3631; --hover: rgba(255, 253, 247, 0.08); color: #fffdf7; }
+/* menus that open from those dark bars (search results, sort, …) sit on a light card: give them the body colours back */
+html[data-skin='ruido'] .app :is(.tb, .tabs, .st) div.tmenu { --ink: #161412; --ink2: #3c3833; --ink3: #635c52; --line: rgba(22, 20, 18, 0.9); --hover: rgba(22, 20, 18, 0.06); color: var(--ink); }
+html[data-skin='ruido'] .app .search, html[data-skin='ruido'] .app .tabs .pill { background: #2a2622; color: #b9b0a0; border-color: #3b3631; }
+/* the mini's search sits on the cream panel, not on a dark bar */
+html[data-skin='ruido'] .app.mini .msearch { background: #fffdf7; border: 2px solid #161412; }
+html[data-skin='ruido'] .app .tabs .tab.on { color: #161412; }
+html[data-skin='ruido'] .app .logo i { box-shadow: inset 0 0 0 4px #161412; outline-color: #fffdf7; }
+html[data-skin='ruido'] .app .tabs { border-top: 3px solid #161412; }
+html[data-skin='ruido'] .app .ti { font-weight: 800; font-size: 21px; letter-spacing: -0.01em; }
+html[data-skin='ruido'] .app .tb2 { border: 2px solid #161412; border-radius: 6px; background: #fffdf7; box-shadow: 2px 2px 0 #161412; }
+html[data-skin='ruido'] .app .tb2:hover:not(:disabled) { background: #ffe03a; }
+html[data-skin='ruido'] .app .play { border: 2px solid #161412; border-radius: 8px; }
+html[data-skin='ruido'] .app .pane .set-sec, html[data-skin='ruido'] .app .qbox, html[data-skin='ruido'] .app .nav .np { border: 2px solid #161412; box-shadow: 4px 4px 0 #161412; }
+html[data-skin='ruido'] .app .q { border: 2px solid #161412; color: #161412; background: #fffdf7; border-radius: 4px; }
+html[data-skin='ruido'] .app .q-ok { background: #53db95; }
+html[data-skin='ruido'] .app .q-bad { background: #ff7b2c; }
+html[data-skin='ruido'] .app .q-warn { background: #ffe03a; }
+html[data-skin='ruido'] .app .settings .eq-switch i { border: 2px solid #161412; }
+html[data-skin='ruido'] .app .settings .eq-switch i::after { top: 0; left: 0; background: #161412; }
+html[data-skin='ruido'] .app .settings .eq-switch input:checked + i { background: #53db95; }
+html[data-skin='ruido'] .app .settings .eq-switch input:checked + i::after { background: #161412; }
+html[data-skin='ruido'] .app .cov { border: 2px solid #161412; box-shadow: 3px 3px 0 #161412; }
+html[data-skin='ruido'] .app .btn { border: 2px solid #161412; }
+html[data-skin='ruido'] .app .btn.primary { border-color: #161412; box-shadow: 2px 2px 0 #161412; }
+html[data-skin='ruido'] .app .row.on { background: color-mix(in srgb, var(--acc) 22%, transparent); }

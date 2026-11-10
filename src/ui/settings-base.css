@@ -1,0 +1,137 @@
+/* Neutral structure for the shared sound settings (Equalizer.tsx). Selectors are `.settings .part`:
+   enough to beat the skins' `.skin *` reset, low enough that a skin restyles any part with
+   `.skin .settings .part`. Colours and fonts come from the skin (currentColor + color-mix).
+   Hooks a skin may set: --set-accent, --set-warn. */
+
+.settings {
+  --set-a: var(--set-accent, currentColor);
+  --set-line: color-mix(in srgb, currentColor 18%, transparent);
+  --set-fill: color-mix(in srgb, currentColor 7%, transparent);
+  --set-w: var(--set-warn, color-mix(in srgb, currentColor 35%, #e8590c));
+}
+
+.settings p.warn, .settings .warn { color: var(--set-w); font-weight: 600; }
+
+/* ---------- switch (checkbox role=switch) ---------- */
+.settings .eq-switch { display: inline-flex; align-items: center; gap: 8px; cursor: pointer; font-size: 13px; white-space: nowrap; user-select: none; }
+.settings .eq-switch input { position: absolute; opacity: 0; width: 1px; height: 1px; pointer-events: none; }
+.settings .eq-switch i { position: relative; flex: none; width: 34px; height: 20px; border-radius: 999px; background: var(--set-fill); box-shadow: inset 0 0 0 1px var(--set-line); transition: background-color 160ms ease; }
+.settings .eq-switch i::after { content: ''; position: absolute; top: 3px; left: 3px; width: 14px; height: 14px; border-radius: 50%; background: color-mix(in srgb, currentColor 55%, transparent); transition: transform 180ms cubic-bezier(0.23, 1, 0.32, 1), background-color 160ms ease; }
+.settings .eq-switch input:checked + i { background: color-mix(in srgb, var(--set-a) 30%, transparent); }
+.settings .eq-switch input:checked + i::after { transform: translateX(14px); background: var(--set-a); }
+.settings .eq-switch input:focus-visible + i { outline: 2px solid var(--set-a); outline-offset: 2px; }
+
+.settings .eq-switch:has(input:disabled) { opacity: 0.45; cursor: default; }
+
+/* ---------- output + crossfade ---------- */
+.settings .out-device { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; margin-top: 14px; }
+.settings .out-device select { flex: 1 1 240px; min-width: 0; max-width: 100%; text-overflow: ellipsis; cursor: pointer; }
+/* The open list is drawn by the OS: system colours keep it readable on dark and light skins. */
+.settings select.eq-input option { background: Canvas; color: CanvasText; }
+.settings .out-now { margin-top: 10px; font-size: 13px; opacity: 0.85; overflow-wrap: anywhere; }
+.settings .out-badge { display: inline-block; margin-left: 8px; padding: 2px 8px; border-radius: 999px; font-size: 10.5px; font-weight: 700; line-height: 16px; letter-spacing: 0.06em; text-transform: uppercase; vertical-align: 1px; white-space: nowrap; color: var(--set-a); background: color-mix(in srgb, var(--set-a) 12%, transparent); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--set-a) 55%, transparent); }
+.settings .out-bp { margin-top: 16px; }
+.settings .out-fallback:empty { display: none; }
+.settings .xfade-albums { margin-top: 12px; }
+
+/* ---------- EQ ---------- */
+.settings .eq-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+
+.settings .eq-presets { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+.settings .eq-chip { display: inline-flex; align-items: stretch; border-radius: 999px; box-shadow: inset 0 0 0 1px var(--set-line); transition: background-color 150ms ease, box-shadow 150ms ease; }
+.settings .eq-chip button { height: 30px; padding: 0 12px; font: inherit; font-size: 13px; color: inherit; background: none; border: 0; border-radius: 999px; cursor: pointer; white-space: nowrap; transition: transform 120ms ease-out; }
+.settings .eq-chip button:active { transform: scale(0.97); }
+.settings .eq-chip button:focus-visible { outline: 2px solid var(--set-a); outline-offset: -2px; }
+.settings .eq-chip.user button:first-child { padding-right: 4px; }
+.settings .eq-chip .eq-chip-x { display: grid; place-items: center; padding: 0 8px 0 2px; opacity: 0.55; }
+.settings .eq-chip .eq-chip-x svg { width: 15px; height: 15px; }
+.settings .eq-chip .eq-chip-x:hover { opacity: 1; }
+.settings .eq-chip.on { background: color-mix(in srgb, var(--set-a) 16%, transparent); box-shadow: inset 0 0 0 1.5px color-mix(in srgb, var(--set-a) 70%, transparent); }
+.settings .eq-chip.on button:first-child { font-weight: 600; }
+@media (hover: hover) and (pointer: fine) {
+  .settings .eq-chip:not(.on:hover) { background: var(--set-fill); }
+}
+
+.settings .eq-curve { margin-top: 12px; font-size: 13px; opacity: 0.8; overflow-wrap: anywhere; }
+
+.settings .eq-bands { display: grid; gap: 2px; margin-top: 12px; padding: 12px 4px 10px; border-radius: 12px; background: var(--set-fill); transition: opacity 160ms ease; }
+.settings .eq-bands.off { opacity: 0.45; }
+.settings .eq-band { display: flex; flex-direction: column; align-items: center; gap: 6px; min-width: 0; }
+.settings .eq-band .eq-db { font-size: 11.5px; }
+.settings .eq-freq { font-size: 11.5px; opacity: 0.8; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.settings .eq-kind { margin-top: -4px; font-size: 10px; letter-spacing: 0.04em; text-transform: uppercase; opacity: 0.55; white-space: nowrap; }
+.settings .eq-band.off .eq-range { cursor: default; }
+.settings .eq-db { font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+/* Native range (accessible, keyboard for free), restyled from the skin's text colour. */
+.settings .eq-range { appearance: none; -webkit-appearance: none; margin: 0; background: none; cursor: pointer; color: inherit; inline-size: 100%; block-size: 20px; }
+.settings .eq-range:disabled { opacity: 0.45; cursor: default; }
+.settings .eq-range::-webkit-slider-runnable-track { inline-size: 100%; block-size: 4px; border-radius: 999px; background: var(--set-line); }
+.settings .eq-range::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; inline-size: 14px; block-size: 14px; margin-block-start: -5px; border-radius: 50%; background: var(--set-a); box-shadow: 0 0 0 3px color-mix(in srgb, var(--set-a) 18%, transparent); transition: transform 120ms ease-out; }
+.settings .eq-range:active::-webkit-slider-thumb { transform: scale(1.15); }
+.settings .eq-range:focus-visible { outline: none; }
+.settings .eq-range:focus-visible::-webkit-slider-thumb { box-shadow: 0 0 0 3px color-mix(in srgb, var(--set-a) 45%, transparent); }
+.settings .eq-range::-moz-range-track { height: 4px; border-radius: 999px; background: var(--set-line); }
+.settings .eq-range::-moz-range-thumb { width: 14px; height: 14px; border: 0; border-radius: 50%; background: var(--set-a); }
+/* Vertical: + up. */
+.settings .eq-vertical { writing-mode: vertical-lr; direction: rtl; inline-size: 132px; block-size: 22px; }
+
+.settings .eq-preamp { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; margin-top: 14px; }
+.settings .eq-preamp .eq-range { flex: 1 1 120px; }
+.settings .eq-preamp .eq-db { min-width: 4.2em; }
+.settings .eq-label { font-size: 13px; font-weight: 600; white-space: nowrap; }
+.settings .eq-preamp .eq-db { font-size: 13px; text-align: right; }
+.settings .eq-preamp-hint:empty { display: none; }
+
+.settings .eq-input { min-width: 0; height: 36px; padding: 0 12px; font: inherit; font-size: 14px; color: inherit; background: var(--set-fill); border: 0; border-radius: 8px; box-shadow: inset 0 0 0 1px var(--set-line); }
+.settings .eq-input::placeholder { color: inherit; opacity: 0.5; }
+.settings .eq-input:focus-visible { outline: 2px solid var(--set-a); outline-offset: 1px; }
+.settings .eq-save { align-items: center; }
+.settings .eq-save .eq-input { flex: 1 1 200px; }
+.settings .eq-save .set-hint { flex-basis: 100%; margin-top: 0; }
+
+/* ---------- AutoEq ---------- */
+.settings .autoeq-search { display: block; width: 100%; margin-top: 14px; }
+.settings .autoeq-sec .set-hint:empty { display: none; }
+.settings .autoeq-list { list-style: none; margin: 10px 0 0; padding: 0; max-height: 300px; overflow-y: auto; display: flex; flex-direction: column; gap: 2px; }
+.settings .autoeq-list li { display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: 12px; align-items: center; padding: 8px 6px 8px 12px; border-radius: 8px; transition: background-color 150ms ease; }
+.settings .autoeq-list li.on { background: color-mix(in srgb, var(--set-a) 12%, transparent); }
+@media (hover: hover) and (pointer: fine) {
+  .settings .autoeq-list li:not(.on:hover) { background: var(--set-fill); }
+}
+.settings .autoeq-name { grid-column: 1; font-weight: 600; font-size: 14px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.settings .autoeq-meta { grid-column: 1; font-size: 12px; opacity: 0.65; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.settings .autoeq-list .btn { grid-column: 2; grid-row: 1 / span 2; }
+
+/* ---------- normalization ---------- */
+.settings .norm-modes { margin-top: 14px; flex-wrap: wrap; width: fit-content; max-width: 100%; }
+
+/* ---------- shortcuts ---------- */
+.settings .keys-list { margin: 12px 0 0; }
+.settings .keys-list > div { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 7px 0; border-bottom: 1px solid var(--set-line); }
+.settings .keys-list > div:last-child { border-bottom: 0; }
+.settings .keys-list dt { font-size: 14px; }
+.settings .keys-list dd { margin: 0; display: flex; align-items: center; gap: 4px; flex-wrap: wrap; justify-content: flex-end; }
+.settings .keys-list kbd { min-width: 26px; padding: 4px 7px; font: 500 12px/1 var(--mono, ui-monospace, monospace); text-align: center; border-radius: 5px; background: var(--set-fill); box-shadow: inset 0 0 0 1px var(--set-line), inset 0 -2px 0 var(--set-line); }
+.settings .keys-list .off dt, .settings .keys-list .off kbd { opacity: 0.5; }
+.settings .keys-taken { margin-left: 6px; font-size: 12px; color: var(--set-w); font-weight: 600; }
+
+/* ---------- phone remote ---------- */
+.settings .remote-pair { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 16px 20px; margin-top: 16px; }
+/* The QR keeps its own white quiet zone: phones read it on dark and light skins alike. */
+.settings .remote-qr { flex: none; width: 168px; height: 168px; border-radius: 12px; background: #fff; box-shadow: 0 0 0 1px var(--set-line); }
+.settings .remote-text { flex: 1 1 220px; min-width: 0; font-size: 14px; }
+.settings .remote-url { display: block; margin-top: 6px; padding: 8px 10px; border-radius: 8px; font: 500 12.5px/1.45 var(--mono, ui-monospace, monospace); background: var(--set-fill); box-shadow: inset 0 0 0 1px var(--set-line); overflow-wrap: anywhere; user-select: all; }
+.settings .remote-h { margin-top: 18px; font-size: 13px; font-weight: 600; }
+.settings .remote-state { margin-left: 8px; font-size: 12px; opacity: 0.65; }
+
+@media (prefers-reduced-motion: reduce) {
+  .settings .eq-switch i::after, .settings .eq-chip button, .settings .eq-range::-webkit-slider-thumb { transition: none; }
+}
+
+/* ---------- Efectos ---------- */
+.settings .fx-range { display: flex; align-items: center; gap: 10px; inline-size: min(300px, 46vw); }
+.settings .fx-range .eq-range { flex: 1 1 auto; }
+.settings .fx-range .eq-db { min-width: 4.6em; font-size: 13px; text-align: right; }
+.settings .fx-speed { display: flex; align-items: center; gap: 10px; }
+.settings .fx-speed .btn { flex: none; min-width: 44px; }

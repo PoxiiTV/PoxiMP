@@ -1,0 +1,26 @@
+/* Pletina — an 80s hi-fi deck: LCD title, bevelled keys, a little VU. */
+@import './fonts.css';
+
+html[data-skin='pletina'] {
+  color-scheme: dark;
+  --bg: #121214; --chrome: #0e0e10; --deck: linear-gradient(#202124, #17181a); --pane: #141416; --card: #18191c; --field: #0b0b0c;
+  --hover: rgba(255, 255, 255, 0.04); --sel: rgba(242, 169, 59, 0.1); --tab-on: #2a2b2f; --tab-on-ink: #f2a93b;
+  --ink: #e6e2d8; --ink2: #a49f94; --ink3: #77736b; --line: #2a2b2f; --line-soft: #1e1f22;
+  --acc: #f2a93b; --acc-ink: #1c1305; --ok: #a9c27a; --bad: #ff6236; --warn: #e8c547;
+  --track: #0b0b0c; --wave-on: #f2a93b; --wave-off: #3a3a3e; --play-bg: linear-gradient(#3a3b40, #26272b); --play-ink: #e6e2d8;
+  --play-sh: inset 0 1px 0 rgba(255, 255, 255, 0.12), 0 2px 0 #000; --knob: #d9d5cb;
+  --f-ui: 'IBM Plex Sans Condensed', 'Arial Narrow', sans-serif; --f-title: 'IBM Plex Sans Condensed', sans-serif; --f-mono: 'IBM Plex Mono', Consolas, monospace;
+  --f-lcd: 'Doto Variable', 'IBM Plex Mono', monospace;
+}
+html[data-skin='pletina'] .app { --r: 3px; --rp: 4px; }
+html[data-skin='pletina'] .app .pl { box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04); }
+html[data-skin='pletina'] .app .inf { align-self: stretch; background: #0b0b0c; border-radius: 3px; padding: 8px 12px; box-shadow: inset 0 1px 4px #000; }
+html[data-skin='pletina'] .app .ti { font-family: var(--f-lcd); font-weight: 800; color: #f2a93b; text-shadow: 0 0 8px rgba(242, 169, 59, 0.4); letter-spacing: 0.02em; text-transform: uppercase; }
+html[data-skin='pletina'] .app .ar { color: #c48a33; font-family: var(--f-mono); font-size: 11.5px; text-transform: uppercase; }
+html[data-skin='pletina'] .app .ar .lnk:hover { color: #f2a93b; }
+html[data-skin='pletina'] .app .tb2 { border-radius: 3px; background: linear-gradient(#2e2f33, #222326); box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 1px 0 #000; width: 36px; height: 30px; }
+html[data-skin='pletina'] .app .tb2:hover:not(:disabled) { background: linear-gradient(#36373b, #28292c); }
+html[data-skin='pletina'] .app .play { border-radius: 3px; width: 50px; height: 38px; }
+html[data-skin='pletina'] .app .tab { text-transform: uppercase; font-size: 11.5px; letter-spacing: 0.06em; }
+html[data-skin='pletina'] .app .nav .np .play { width: 34px; height: 28px; }
+html[data-skin='pletina'] .app[data-x] .q { border-radius: 2px; }

@@ -1,0 +1,3 @@
+/* Offline fonts, latin subset and woff2 only (the webview always supports it): smaller bundle */
+@font-face { font-family: 'Bricolage Grotesque Variable'; font-style: normal; font-display: swap; font-weight: 200 800; src: url('@fontsource-variable/bricolage-grotesque/files/bricolage-grotesque-latin-opsz-normal.woff2') format('woff2-variations'); }
+@font-face { font-family: 'Martian Mono Variable'; font-style: normal; font-display: swap; font-weight: 100 800; font-stretch: 75% 112.5%; src: url('@fontsource-variable/martian-mono/files/martian-mono-latin-wdth-normal.woff2') format('woff2-variations'); }

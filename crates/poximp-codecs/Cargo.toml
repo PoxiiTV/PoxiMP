@@ -1,0 +1,18 @@
+[package]
+name = "poximp-codecs"
+description = "PoxiMP codec registry: symphonia + Opus (libopus), WavPack and Monkey's Audio"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+
+[features]
+default = ["opus"]
+# libopus is C, built with CMake. Off only for cross-target checks without a C toolchain.
+opus = ["dep:symphonia-adapter-libopus"]
+
+[dependencies]
+symphonia.workspace = true
+symphonia-adapter-libopus = { version = "0.3.0", optional = true }
+symphonia-codec-wavpack = "0.1.1"
+ape-decoder = "0.3.2"

@@ -1,0 +1,25 @@
+/* Fósforo — an amber phosphor tracker: scanlines, [tabs], square keys. */
+@import './fonts.css';
+
+html[data-skin='fosforo'] {
+  color-scheme: dark;
+  --bg: #0d0c0a; --chrome: #100f0c; --deck: #100f0c; --pane: #100f0c; --card: #12110d; --field: #16140f;
+  --hover: rgba(255, 176, 46, 0.06); --sel: rgba(255, 176, 46, 0.1); --tab-on: #ffb02e; --tab-on-ink: #160f04;
+  --ink: #efe4cb; --ink2: #a89c83; --ink3: #7a705d; --line: #2e2a20; --line-soft: #1d1a14;
+  --acc: #ffb02e; --acc-ink: #160f04; --ok: #9fd27a; --bad: #ff5a3c; --warn: #ffd166;
+  --track: #26221a; --wave-on: #ffb02e; --wave-off: #3a3326; --play-bg: #ffb02e; --play-ink: #160f04;
+  --f-ui: 'IBM Plex Mono', Consolas, monospace; --f-title: 'Martian Mono Variable', 'IBM Plex Mono', monospace; --f-mono: 'IBM Plex Mono', Consolas, monospace;
+  --f-lcd: var(--f-title);
+}
+html[data-skin='fosforo'] .app { --r: 0px; --rp: 0px; font-size: 12px; }
+html[data-skin='fosforo'] .app .ti { color: #ffb02e; text-shadow: 0 0 10px rgba(255, 176, 46, 0.35); font-size: 16px; font-weight: 600; }
+html[data-skin='fosforo'] .app .tb2, html[data-skin='fosforo'] .app .play { border-radius: 0; }
+html[data-skin='fosforo'] .app .pl, html[data-skin='fosforo'] .app .body { background-image: repeating-linear-gradient(transparent 0 2px, rgba(0, 0, 0, 0.18) 2px 3px); }
+html[data-skin='fosforo'] .app .tab { padding: 0 6px; gap: 0; }
+html[data-skin='fosforo'] .app .tab .ico { display: none; }
+html[data-skin='fosforo'] .app .tab::before { content: '['; color: var(--ink3); }
+html[data-skin='fosforo'] .app .tab::after { content: ']'; color: var(--ink3); }
+html[data-skin='fosforo'] .app .tab.on::before, html[data-skin='fosforo'] .app .tab.on::after { color: inherit; }
+html[data-skin='fosforo'] .app .q { border-radius: 0; }
+html[data-skin='fosforo'] .app .cov { box-shadow: none; }
+@container tabs (max-width: 900px) { html[data-skin='fosforo'] .app .tab { padding: 0 3px; } }

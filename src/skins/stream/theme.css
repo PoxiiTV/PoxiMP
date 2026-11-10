@@ -1,0 +1,20 @@
+/* Stream — a streaming platform look: near-black, pills, a lime accent. */
+@import './fonts.css';
+
+html[data-skin='stream'] {
+  color-scheme: dark;
+  --bg: #121214; --chrome: #070708; --deck: #070708; --pane: #131315; --card: #1c1c1f; --field: #1f1f22;
+  --hover: #26262a; --sel: #26262a; --tab-on: #f6f6f2; --tab-on-ink: #070708;
+  --ink: #f6f6f2; --ink2: #b2b2b6; --ink3: #85858c; --line: rgba(255, 255, 255, 0.08); --line-soft: rgba(255, 255, 255, 0.04);
+  --acc: #d4f53c; --acc-ink: #0b0d02; --ok: #d4f53c; --bad: #ff6f5b; --warn: #ffc857;
+  --track: #3a3a3f; --wave-on: #f6f6f2; --wave-off: #3a3a3f; --play-bg: #f6f6f2; --play-ink: #070708;
+  --f-ui: 'Figtree Variable', 'Segoe UI', sans-serif; --f-title: 'Figtree Variable', sans-serif; --f-mono: 'Figtree Variable', sans-serif;
+  --f-lcd: var(--f-title);
+}
+html[data-skin='stream'] .app { --r: 999px; --rp: 12px; }
+html[data-skin='stream'] .app .cov { border-radius: 6px; }
+html[data-skin='stream'] .app .ti { font-weight: 750; }
+html[data-skin='stream'] .app .pane .sk button, html[data-skin='stream'] .app .pane .sk i { border-radius: 10px; }
+html[data-skin='stream'] .app .pane .folder-list li { border-radius: 8px; }
+html[data-skin='stream'] .app .search { padding-left: 12px; }
+html[data-skin='stream'] .app .eq-input { border-radius: 8px !important; }

@@ -1,0 +1,46 @@
+[package]
+name = "poximp"
+description = "PoxiMP - reproductor de musica local"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+
+[lib]
+name = "poximp_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2", features = [] }
+tauri-plugin-single-instance = "2"
+tauri-plugin-opener = "2"
+tauri-plugin-process = "2"
+tauri-plugin-dialog = "2"
+serde.workspace = true
+serde_json.workspace = true
+crossbeam-channel.workspace = true
+poximp-engine.workspace = true
+poximp-quality.workspace = true
+poximp-library.workspace = true
+tauri-plugin-global-shortcut = "2"
+# rustls (no OpenSSL / schannel quirks), only for AutoEq downloads
+reqwest = { version = "0.12", default-features = false, features = ["rustls-tls"] }
+# Phone remote (off by default): LAN interfaces, QR as SVG only, OS randomness, HTTP head parser
+if-addrs = "0.15"
+qrcode = { version = "0.14", default-features = false, features = ["svg"] }
+getrandom = "0.3"
+httparse = "1"
+tauri-plugin-updater = "2"
+
+# SMTC (Windows) / Now Playing (macOS): media keys and the OS media overlay
+[target.'cfg(any(windows, target_os = "macos"))'.dependencies]
+souvlaki = "0.9"
+
+[target.'cfg(target_os = "macos")'.dependencies]
+# the mini player's traffic lights (lights.rs)
+objc2 = "0.6"
+objc2-app-kit = { version = "0.3", default-features = false, features = ["std", "objc2-core-foundation", "NSResponder", "NSView", "NSControl", "NSButton", "NSWindow"] }
+objc2-foundation = { version = "0.3", default-features = false, features = ["std", "NSGeometry"] }

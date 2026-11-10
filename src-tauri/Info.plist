@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!-- Merged into the bundle Info.plist: each audio format with its own icon (icons/files/*.icns,
+     copied to Contents/Resources by tauri.macos.conf.json). Finder sends them as RunEvent::Opened. -->
+<plist version="1.0">
+<dict>
+  <key>CFBundleDocumentTypes</key>
+  <array>
+    <dict>
+      <key>CFBundleTypeName</key><string>Audio MP3</string>
+      <key>CFBundleTypeRole</key><string>Viewer</string>
+      <key>LSHandlerRank</key><string>Default</string>
+      <key>CFBundleTypeIconFile</key><string>mp3.icns</string>
+      <key>CFBundleTypeExtensions</key>
+      <array><string>mp3</string></array>
+    </dict>
+    <dict>
+      <key>CFBundleTypeName</key><string>Audio FLAC</string>
+      <key>CFBundleTypeRole</key><string>Viewer</string>
+      <key>LSHandlerRank</key><string>Default</string>
+      <key>CFBundleTypeIconFile</key><string>flac.icns</string>
+      <key>CFBundleTypeExtensions</key>
+      <array><string>flac</string></array>
+    </dict>
+    <dict>
+      <key>CFBundleTypeName</key><string>Audio WAV</string>
+      <key>CFBundleTypeRole</key><string>Viewer</string>
+      <key>LSHandlerRank</key><string>Default</string>
+      <key>CFBundleTypeIconFile</key><string>wav.icns</string>
+      <key>CFBundleTypeExtensions</key>
+      <array><string>wav</string></array>
+    </dict>
+    <dict>
+      <key>CFBundleTypeName</key><string>Audio AIFF</string>
+      <key>CFBundleTypeRole</key><string>Viewer</string>
+      <key>LSHandlerRank</key><string>Default</string>
+      <key>CFBundleTypeIconFile</key><string>aiff.icns</string>
+      <key>CFBundleTypeExtensions</key>
+      <array><string>aiff</string><string>aif</string></array>
+    </dict>
+    <dict>
+      <key>CFBundleTypeName</key><string>Audio M4A</string>
+      <key>CFBundleTypeRole</key><string>Viewer</string>
+      <key>LSHandlerRank</key><string>Default</string>
+      <key>CFBundleTypeIconFile</key><string>m4a.icns</string>
+      <key>CFBundleTypeExtensions</key>
+      <array><string>m4a</string></array>
+    </dict>
+    <dict>
+      <key>CFBundleTypeName</key><string>Audio AAC</string>
+      <key>CFBundleTypeRole</key><string>Viewer</string>
+      <key>LSHandlerRank</key><string>Default</string>
+      <key>CFBundleTypeIconFile</key><string>aac.icns</string>
+      <key>CFBundleTypeExtensions</key>
+      <array><string>aac</string></array>
+    </dict>
+    <dict>
+      <key>CFBundleTypeName</key><string>Audio OGG</string>
+      <key>CFBundleTypeRole</key><string>Viewer</string>
+      <key>LSHandlerRank</key><string>Default</string>
+      <key>CFBundleTypeIconFile</key><string>ogg.icns</string>
+      <key>CFBundleTypeExtensions</key>
+      <array><string>ogg</string><string>oga</string></array>
+    </dict>
+    <dict>
+      <key>CFBundleTypeName</key><string>Audio Opus</string>
+      <key>CFBundleTypeRole</key><string>Viewer</string>
+      <key>LSHandlerRank</key><string>Default</string>
+      <key>CFBundleTypeIconFile</key><string>opus.icns</string>
+      <key>CFBundleTypeExtensions</key>
+      <array><string>opus</string></array>
+    </dict>
+    <dict>
+      <key>CFBundleTypeName</key><string>Audio WavPack</string>
+      <key>CFBundleTypeRole</key><string>Viewer</string>
+      <key>LSHandlerRank</key><string>Default</string>
+      <key>CFBundleTypeIconFile</key><string>wv.icns</string>
+      <key>CFBundleTypeExtensions</key>
+      <array><string>wv</string></array>
+    </dict>
+    <dict>
+      <key>CFBundleTypeName</key><string>Audio APE</string>
+      <key>CFBundleTypeRole</key><string>Viewer</string>
+      <key>LSHandlerRank</key><string>Default</string>
+      <key>CFBundleTypeIconFile</key><string>ape.icns</string>
+      <key>CFBundleTypeExtensions</key>
+      <array><string>ape</string></array>
+    </dict>
+    <dict>
+      <key>CFBundleTypeName</key><string>Lista de reproducción M3U</string>
+      <key>CFBundleTypeRole</key><string>Viewer</string>
+      <key>LSHandlerRank</key><string>Default</string>
+      <key>CFBundleTypeIconFile</key><string>m3u.icns</string>
+      <key>CFBundleTypeExtensions</key>
+      <array><string>m3u</string><string>m3u8</string></array>
+    </dict>
+  </array>
+</dict>
+</plist>

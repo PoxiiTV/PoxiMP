@@ -1,0 +1,14 @@
+[package]
+name = "poximp-quality"
+description = "PoxiMP real-quality detector (fake 320 / fake lossless / fake hi-res)"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+
+[dependencies]
+symphonia.workspace = true
+poximp-codecs.workspace = true
+realfft.workspace = true
+thiserror.workspace = true
+serde.workspace = true
